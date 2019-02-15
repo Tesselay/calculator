@@ -6,7 +6,7 @@ main.cpp
 Calculator.cpp
 
 Description:                                                                                                
-Calculator capable of basic arithmetic (Addition, Substraction, Multiplication, Division, Parenthesis).
+Flow text calculator capable of basic arithmetic (Addition, Substraction, Multiplication, Division, Parenthesis).
 
 To-Do:
 - Add capability of calculating powers.
