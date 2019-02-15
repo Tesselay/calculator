@@ -15,6 +15,5 @@ ver 1.1:
 - Added capability of recognizing negative numbers.
 - Added extensive code documentation.
 
-@author Dominique Lahl
-
+@author Dominique Lahl                                                                                                          
 @version 1.1 15/02/2019
