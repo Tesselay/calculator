@@ -16,4 +16,5 @@ ver 1.1:
 - Added extensive code documentation.
 
 @author Dominique Lahl
+
 @version 1.1 15/02/2019
