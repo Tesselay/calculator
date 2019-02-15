@@ -2,10 +2,10 @@
 
 Project for getting into C++.
 
-main.cpp
+main.cpp                                                                                                            
 Calculator.cpp
 
-Description: 
+Description:                                                                                                
 Calculator capable of basic arithmetic (Addition, Substraction, Multiplication, Division, Parenthesis).
 
 To-Do:
