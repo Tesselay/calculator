@@ -2,19 +2,23 @@
 
 Project for getting into C++.
 
-main.cpp                                                                                                            
+main.cpp                                                                                                          
 Calculator.cpp
 
-Description:                                                                                                
+Description: 
 Flow text calculator capable of basic arithmetic (Addition, Substraction, Multiplication, Division, Parenthesis).
 
-To-Do:
-- Add capability of calculating powers.
+To-Do: 
+- Code optimization.                                                                                              
+                                                                                                                                                                                                                                                                     
+ver 1.2:
+- Add capability of calculating exponentials.
+- Add capability of calculating factorial.
 
 ver 1.1:
 - Added capability of recognizing negative numbers.
 - Added extensive code documentation.
 - Some code optimization.
 
-@author Dominique Lahl                                                                                                          
-@version 1.1 15/02/2019
+@author Dominique Lahl                                                                                            
+@version 1.2 16/02/2019
