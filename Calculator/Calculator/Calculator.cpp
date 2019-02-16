@@ -5,18 +5,23 @@
 	Calculator.cpp
 
 	Description: 
-	Calculator capable of basic arithmetic (Addition, Substraction, Multiplication, Division, Parenthesis).
+	Flow text calculator capable of basic arithmetic (Addition, Substraction, Multiplication, Division, Parenthesis).
 
 	To-Do:
-	- Add capability of calculating powers.
+	- Code optimization.
 
-	ver 1.1:
-	- Added capability of recognizing negative numbers.
-	- Added extensive code documentation.
-	- Some code optimization.
+	versions:
+		ver 1.2:
+		- Add capability of calculating exponentials.
+		- Add capability of calculating factorial.
+
+		ver 1.1:
+		- Added capability of recognizing negative numbers.
+		- Added extensive code documentation.
+		- Some code optimization.
 
 	@author Dominique Lahl
-	@version 1.1 15/02/2019
+	@version 1.2 16/02/2019
 */
 
 #include <iostream>
@@ -46,6 +51,7 @@ public:
 			std::cout << "\n['x' as first character to close]\n";
 			std::cout << "Enter a calculation:\n";
 
+
 			std::string calculation;
 			std::cin >> calculation;
 
@@ -62,10 +68,14 @@ public:
 				// Will work through operations by priority.
 				calculation = parenthesis_calculation(calculation);
 				DEBUG("Paranthesis result", calculation)
-				calculation = division_calculation(calculation);
-				DEBUG("Division result", calculation)
+				calculation = factorial_calculation(calculation);
+				DEBUG("Factorial result", calculation);
+				calculation = exponential_calculation(calculation);
+				DEBUG("Exponential result", calculation)
 				calculation = multiplication_calculation(calculation);
 				DEBUG("Multiplication result", calculation)
+				calculation = division_calculation(calculation);
+				DEBUG("Division result", calculation)
 				calculation = addition_calculation(calculation);
 				DEBUG("Addition result", calculation)
 				calculation = substraction_calculation(calculation);
@@ -75,6 +85,145 @@ public:
 	}
 
 private:
+	std::string parenthesis_calculation(std::string calc) {
+		/**
+			Function for calculation of parenthesis' content. Works through every operation
+			with substr of the calculation.
+
+			@param calc String with the calculation.
+			@returns String with the finished calculation.
+		*/
+
+		size_t pt_b;
+
+		while (true) {
+			pt_b = calc.find('(');
+
+			if (pt_b != std::string::npos) {
+				size_t pt_e = calc.find(')');
+
+				std::string sub_calc = division_calculation(calc.substr(pt_b + 1, (pt_e - pt_b - 1)));
+
+				sub_calc = factorial_calculation(sub_calc);
+				sub_calc = exponential_calculation(sub_calc);
+				sub_calc = multiplication_calculation(sub_calc);
+				sub_calc = addition_calculation(sub_calc);
+				sub_calc = substraction_calculation(sub_calc);
+
+				calc.replace(pt_b, (pt_e - pt_b + 1), sub_calc);
+			}
+
+			else {
+				return calc;
+				break;
+			}
+		}
+	}
+
+	std::string factorial_calculation(std::string calc) {
+		/**
+			Function for calculation of factorial operations.
+
+			@param calc String with the calculation.
+			@returns String with the finished calculation.
+		*/
+
+		size_t factorial;
+
+		while (true) {
+			factorial = calc.find('!');
+
+			if (factorial != std::string::npos) {
+				int size_a;
+				double a;
+
+				number_size(calc, 1, '!', &size_a, &a);
+
+				unsigned long long int b = a;
+
+				for (unsigned long long int i = a - 1; i > 0; i--) {
+					b = b * i;
+				}
+
+				calc.replace((factorial - size_a), size_a + 1, std::to_string(b));
+			}
+
+			else {
+				return calc;
+				break;
+			}
+		}
+	}
+
+	std::string exponential_calculation(std::string calc) {
+		/**
+					Function for calculation of exponential operations.
+
+					@param calc String with the calculation.
+					@returns String with the finished calculation.
+				*/
+
+		size_t exponent;
+
+		while (true) {
+			exponent = calc.find('^');
+
+			if (exponent != std::string::npos) {
+				int size_a, size_b;
+				double a, b;
+
+				number_size(calc, 1, '^', &size_a, &a);
+				number_size(calc, 2, '^', &size_b, &b);
+
+				for (double i = b; i <= b; i++) {
+					a *= a;
+				}
+
+				int size_c = size_a + size_b + 1;
+
+				calc.replace((exponent - size_a), size_c, std::to_string(a));
+			}
+
+			else {
+				return calc;
+				break;
+			}
+		}
+	}
+
+	std::string multiplication_calculation(std::string calc) {
+		/**
+			Function for calculation of multiplication operations.
+
+			@param calc String with the calculation.
+			@returns String with the finished calculation.
+		*/
+
+		size_t multiplicator;
+
+		while (true) {
+			multiplicator = calc.find('*');
+
+			if (multiplicator != std::string::npos) {
+				int size_a, size_b;
+				double a, b;
+
+				number_size(calc, 1, '*', &size_a, &a);
+				number_size(calc, 2, '*', &size_b, &b);
+
+				double c = a * b;
+				int size_c = size_a + size_b + 1;
+
+				calc.replace((multiplicator - size_a), size_c, std::to_string(c));
+			}
+
+			else {
+				return calc;
+				break;
+			}
+		}
+	}
+
 	std::string division_calculation(std::string calc) {
 		/**
 			Function for calculation of division operations.
@@ -107,39 +256,6 @@ private:
 			}
 
 			// If no divisor is found, calculation will be returned.
-			else {
-				return calc;
-				break;
-			}
-		}
-	}
-
-	std::string multiplication_calculation(std::string calc) {
-		/**
-			Function for calculation of multiplication operations.
-
-			@param calc String with the calculation.
-			@returns String with the finished calculation.
-		*/
-
-		size_t multiplicator;
-
-		while (true) {
-			multiplicator = calc.find('*');
-
-			if (multiplicator != std::string::npos){
-				int size_a, size_b;
-				double a, b;
-
-				number_size(calc, 1, '*', &size_a, &a);
-				number_size(calc, 2, '*', &size_b, &b);
-
-				double c = a * b;
-				int size_c = size_a + size_b + 1;
-
-				calc.replace((multiplicator - size_a), size_c, std::to_string(c));
-			}
-
 			else {
 				return calc;
 				break;
@@ -213,39 +329,6 @@ private:
 		}
 	}
 
-	std::string parenthesis_calculation(std::string calc) {
-		/**
-			Function for calculation of parenthesis' content. Works through every operation
-			with substr of the calculation.
-
-			@param calc String with the calculation.
-			@returns String with the finished calculation.
-		*/
-
-		size_t pt_b;
-
-		while (true) {
-			pt_b = calc.find('(');
-
-			if (pt_b != std::string::npos) {
-				size_t pt_e = calc.find(')');
-
-				std::string sub_calc = division_calculation(calc.substr(pt_b + 1, (pt_e - pt_b - 1)));
-
-				sub_calc = multiplication_calculation(sub_calc);
-				sub_calc = addition_calculation(sub_calc);
-				sub_calc = substraction_calculation(sub_calc);
-
-				calc.replace(pt_b, (pt_e - pt_b + 1), sub_calc);
-			}
-
-			else {
-				return calc;
-				break;
-			}
-		}
-	}
-
 	std::string input_check(std::string calc) {
 		/**
 			Controls if the input is a calculation. Uses the ascii-codes of the respective
@@ -268,10 +351,9 @@ private:
 				return "";
 			}
 
-			// Ascii characters: 48 - 57 = 0 - 9; 32 = ' '; 40 = '('; 41 = ')'; 42 = '*'; 43 = '+'; 45 = '-'; 47 = '/'; 94 = '^'
-			else if ((((int(calc[i]) <= 57) && (int(calc[i]) >= 48)) || (int(calc[i]) >= 40 && int(calc[i] <= 43)) || int(calc[i] == 32 || int(calc[i]) == 45 || int(calc[i]) == 47 || int(calc[i]) == 94))) {
-			
-			}
+			// Ascii characters: 48 - 57 = 0 - 9; 40 = '('; 41 = ')'; 42 = '*'; 43 = '+';
+			else if ((((int(calc[i]) <= 57) && (int(calc[i]) >= 48)) || (int(calc[i]) >= 40 && int(calc[i] <= 43)) || 
+					 calc[i] == ' ' || calc[i] == '!' || calc[i] == '-' || calc[i] == '/' || calc[i] == '^')) {}
 
 			else {
 				PRINT("Please only numbers and allowed symbols!\n'+' - Plus\n'-' - Minus\n'*' Multipli\n'/' Divisi\n'^' Potenz")
