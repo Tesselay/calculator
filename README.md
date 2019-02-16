@@ -5,7 +5,7 @@ Project for getting into C++.
 main.cpp                                                                                                          
 Calculator.cpp
 
-Description: 
+Description:                                                                                                
 Flow text calculator capable of basic arithmetic (Addition, Substraction, Multiplication, Division, Parenthesis).
 
 To-Do: 
