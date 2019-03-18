@@ -9,7 +9,8 @@ Description:
 Flow text calculator capable of basic arithmetic (Addition, Substraction, Multiplication, Division, Parenthesis).
 
 To-Do: 
-- Code optimization.                                                                                              
+- Code optimization.
+- Fix bug with exponential calc.
                                                                                                                                                                                                                                                                      
 ver 1.2:
 - Add capability of calculating exponentials.
