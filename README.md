@@ -14,7 +14,7 @@ To-Do:
 - Better number presentation.
  
 ver 1.2.1:
-- Fixed bug: Parenthesis calculation not working correctly, when Parenthesis is on first place.
+- Fixed bug: Parenthesis calculation not working correctly, when calculation starts with parenthesis.
 
 ver 1.2:
 - Add capability of calculating exponentials.
