@@ -26,4 +26,4 @@ ver 1.1:
 - Some code optimization.
 
 @author Dominique Lahl                                                                                            
-@version 1.2.1 10/04/2019
+@version 1.2.1 10/04/2019	
