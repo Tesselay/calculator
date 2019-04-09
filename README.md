@@ -7,11 +7,15 @@ Calculator.cpp
 
 Description:                                                                                                
 Flow text calculator capable of basic arithmetic (Addition, Substraction, Multiplication, Division, Parenthesis).
+Uses https://github.com/Fegit/bannerCreator.
 
 To-Do: 
 - Code optimization.
-- Fix bug with exponential calc.
-                                                                                                                                                                                                                                                                     
+- Better number presentation.
+ 
+ver 1.2.1:
+- Fixed bug: Parenthesis calculation not working correctly, when Parenthesis is on first place.
+
 ver 1.2:
 - Add capability of calculating exponentials.
 - Add capability of calculating factorial.
@@ -22,4 +26,4 @@ ver 1.1:
 - Some code optimization.
 
 @author Dominique Lahl                                                                                            
-@version 1.2 16/02/2019
+@version 1.2.1 10/04/2019
