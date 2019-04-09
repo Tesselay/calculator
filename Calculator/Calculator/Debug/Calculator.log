@@ -1,20 +1,20 @@
 ﻿  Calculator.cpp
-e:\c++-projects\calculator\calculator\calculator.cpp(26): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-e:\c++-projects\calculator\calculator\banner.h(5): warning C4005: 'OUT': macro redefinition
+e:\projectscpp\calculator\calculator\calculator.cpp(31): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+e:\projectscpp\calculator\calculator\banner.h(5): warning C4005: 'OUT': macro redefinition
   e:\windows kits\10\include\10.0.17763.0\shared\minwindef.h(83): note: see previous definition of 'OUT'
-e:\c++-projects\calculator\calculator\banner.h(7): warning C4005: 'IN': macro redefinition
+e:\projectscpp\calculator\calculator\banner.h(7): warning C4005: 'IN': macro redefinition
   e:\windows kits\10\include\10.0.17763.0\shared\minwindef.h(79): note: see previous definition of 'IN'
-e:\c++-projects\calculator\calculator\calculator.cpp(138): warning C4244: 'initializing': conversion from 'double' to 'unsigned __int64', possible loss of data
-e:\c++-projects\calculator\calculator\calculator.cpp(140): warning C4244: 'initializing': conversion from 'double' to 'unsigned __int64', possible loss of data
-e:\c++-projects\calculator\calculator\calculator.cpp(342): warning C4018: '<=': signed/unsigned mismatch
+e:\projectscpp\calculator\calculator\calculator.cpp(143): warning C4244: 'initializing': conversion from 'double' to 'unsigned __int64', possible loss of data
+e:\projectscpp\calculator\calculator\calculator.cpp(145): warning C4244: 'initializing': conversion from 'double' to 'unsigned __int64', possible loss of data
+e:\projectscpp\calculator\calculator\calculator.cpp(349): warning C4018: '<=': signed/unsigned mismatch
   main.cpp
-e:\c++-projects\calculator\calculator\calculator.cpp(26): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-e:\c++-projects\calculator\calculator\banner.h(5): warning C4005: 'OUT': macro redefinition
+e:\projectscpp\calculator\calculator\calculator.cpp(31): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+e:\projectscpp\calculator\calculator\banner.h(5): warning C4005: 'OUT': macro redefinition
   e:\windows kits\10\include\10.0.17763.0\shared\minwindef.h(83): note: see previous definition of 'OUT'
-e:\c++-projects\calculator\calculator\banner.h(7): warning C4005: 'IN': macro redefinition
+e:\projectscpp\calculator\calculator\banner.h(7): warning C4005: 'IN': macro redefinition
   e:\windows kits\10\include\10.0.17763.0\shared\minwindef.h(79): note: see previous definition of 'IN'
-e:\c++-projects\calculator\calculator\calculator.cpp(138): warning C4244: 'initializing': conversion from 'double' to 'unsigned __int64', possible loss of data
-e:\c++-projects\calculator\calculator\calculator.cpp(140): warning C4244: 'initializing': conversion from 'double' to 'unsigned __int64', possible loss of data
-e:\c++-projects\calculator\calculator\calculator.cpp(342): warning C4018: '<=': signed/unsigned mismatch
+e:\projectscpp\calculator\calculator\calculator.cpp(143): warning C4244: 'initializing': conversion from 'double' to 'unsigned __int64', possible loss of data
+e:\projectscpp\calculator\calculator\calculator.cpp(145): warning C4244: 'initializing': conversion from 'double' to 'unsigned __int64', possible loss of data
+e:\projectscpp\calculator\calculator\calculator.cpp(349): warning C4018: '<=': signed/unsigned mismatch
   Generating Code...
-  Calculator.vcxproj -> E:\C++-Projects\Calculator\Debug\Calculator.exe
+  Calculator.vcxproj -> E:\ProjectsCpp\Calculator\Debug\Calculator.exe

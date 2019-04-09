@@ -5,12 +5,16 @@
 	Calculator.cpp
 
 	Description: 
-	Flow text calculator capable of basic arithmetic (Addition, Substraction, Multiplication, Division, Parenthesis).
+	Flow text calculator capable of some arithmetic (Addition, Substraction, Multiplication, Division, Parenthesis, Exponentiation, Factorial).
 
 	To-Do:
 	- Code optimization.
+	- Better number presentation.
 
 	versions:
+		ver 1.2.1:
+		- Fixed bug: Parenthesis calculation not working correctly, when Parenthesis is on first place.
+
 		ver 1.2:
 		- Add capability of calculating exponentials.
 		- Add capability of calculating factorial.
@@ -67,7 +71,7 @@ public:
 			else if (calculation != " ") {
 				// Will work through operations by priority.
 				calculation = parenthesis_calculation(calculation);
-				DEBUG("Paranthesis result", calculation)
+				DEBUG("Parenthesis result", calculation)
 				calculation = factorial_calculation(calculation);
 				DEBUG("Factorial result", calculation);
 				calculation = exponential_calculation(calculation);
@@ -102,7 +106,7 @@ private:
 			if (pt_b != std::string::npos) {
 				size_t pt_e = calc.find(')');
 
-				std::string sub_calc = division_calculation(calc.substr(pt_b + 1, (pt_e - pt_b - 1)));
+				std::string sub_calc = division_calculation(calc.substr(pt_b + 1, (pt_e - pt_b - 1)));			// Creates a substring of parenthesis content: (beginning: pt_b + 1; length: pt_e - pt_b - 1)
 
 				sub_calc = factorial_calculation(sub_calc);
 				sub_calc = exponential_calculation(sub_calc);
@@ -175,8 +179,10 @@ private:
 				number_size(calc, 1, '^', &size_a, &a);
 				number_size(calc, 2, '^', &size_b, &b);
 
+
+
 				for (double i = b; i <= b; i++) {
-					a *= a;
+					a = a * a;
 				}
 
 				int size_c = size_a + size_b + 1;
@@ -338,8 +344,8 @@ private:
 			@returns Either the calculation or string for decision of operation in main() function.
 		*/
 
-		if (calc[0] != '-' && calc[0] != 'x' && !((int(calc[0]) <= 57) && (int(calc[0]) >= 48))) {
-			// To make sure that an operator, except for '-', won't be at the first position.
+		if (calc[0] != '-' && calc[0] != 'x' && calc[0] != '(' && !((int(calc[0]) <= 57) && (int(calc[0]) >= 48))) {
+			// To make sure that an operator, except for '-' and '(', won't be at the first position.
 			calc.erase(0, 1);
 		}
 
