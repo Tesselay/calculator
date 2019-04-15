@@ -22,7 +22,7 @@ ver 1.2:
 
 ver 1.1:
 - Added capability of recognizing negative numbers.
-- Added extensive code documentation.
+- Added code documentation.
 - Some code optimization.
 
 @author Dominique Lahl                                                                                            
